@@ -9,5 +9,10 @@
 	$headers .= 'From: <'.$from_email.'>' . "\r\n";
 	$headers .= 'Cc: '.$from_email.'' . "\r\n";
 	$headers .= 'Reply-To: <'.$from_email.'>' . "\r\n"; 
-	mail($to,$subject,$message,$headers);
+	if(mail($to,$subject,$message,$headers)) {
+		echo "Success";
+	}
+	else {
+		echo "Failed";
+	}
  ?>
