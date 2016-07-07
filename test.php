@@ -1,5 +1,5 @@
 <?php
-	$link = mysqli_connect('mydbinstance.abcdefghijkl.us-east-1.rds.amazonaws.com', 'awsuser', 'mypassword', 'information_schema', 3306);
+	$link = mysqli_connect('mydbinstance.abcdefghijkl.us-east-1.rds.amazonaws.com', 'awsuser', 'mypassword', 'information_schema');
 	var_dump($link);
 	 $host = "mydbinstance.abcdefghijkl.us-east-1.rds.amazonaws.com";
 	   
