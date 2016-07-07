@@ -1,18 +1,13 @@
 <?php
-	$from_email = "admin@smaatapps.com";
-	$message = "Hi";
-	$subject = "Test";
+	$host = "dtdb-dev.chibwsimd7gb.ap-southeast-1.rds.amazonaws.com:3306";
+	$dbuser ="dtuser";
+	$db_password ="Ze5rewefEc";
+	$database="dogytales";
 	
-	$to = "car3chan@gmail.com";
-	$headers = "MIME-Version: 1.0" . "\r\n";
-	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-	$headers .= 'From: <'.$from_email.'>' . "\r\n";
-	$headers .= 'Cc: '.$from_email.'' . "\r\n";
-	$headers .= 'Reply-To: <'.$from_email.'>' . "\r\n"; 
-	if(mail($to,$subject,$message,$headers)) {
-		echo "Success";
+    	mysql_connect($host,$dbuser,$db_password) or die ("Error connecting to DB");
+	$selectDb=mysql_select_db($database) ;	
+	if($selectDb)
+	{
+		echo "successfully done";	
 	}
-	else {
-		echo "Failed";
-	}
- ?>
+?>
