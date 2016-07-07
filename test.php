@@ -15,5 +15,7 @@
 	if($selectDb)
 	{
 		echo "successfully done";	
+	}else{
+		echo mysql_error();
 	}
 ?>
