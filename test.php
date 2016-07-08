@@ -16,17 +16,18 @@
 	PRIMARY KEY  (ID)
 	)";
 	if (mysqli_query($link, $query)) {
-	    echo "Table MyGuests created successfully";
+	    //echo "Table MyGuests created successfully";
 	} else {
-	    echo "Error creating table: " . mysqli_error($link);
+	    //echo "Error creating table: " . mysqli_error($link);
 	}
+	$EMAIL = $_GET['EMAIL']; $PASSWORD = $_GET['PASSWORD'];
 	$sql = "INSERT INTO USERS (EMAIL, PASSWORD)
-	VALUES ('Doe', 'john@example.com')";
+	VALUES ($EMAIL, $PASSWORD)";
 	
 	if (mysqli_query($link, $sql)) {
-	    echo "New record created successfully";
+	    //echo "New record created successfully";
 	} else {
-	    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+	    //echo "Error: " . $sql . "<br>" . mysqli_error($link);
 	}
         //$result = mysqli_query($link, $query);
         $sql = "SELECT ID, EMAIL, PASSWORD FROM USERS";
