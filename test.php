@@ -8,17 +8,6 @@
 	  	echo "success";
 	  }
 	  
-	$servername = "soiree-smaatapp.cvjwbf8cmrzh.us-west-2.rds.amazonaws.com";
-	$username = "soiree";
-	$password = "kQ#$U3GYUhmw=J&o6Rzv3uh4puWkZi[Nca3rPqBg9";
-	$dbname = "soiree_smaatapp";
-	$dbport = 3306;
-	$con = mysqli_connect($servername, $username, $password, $dbname, $dbport);
-
-	// Check connection
-	if (mysqli_connect_errno())
-	{
-	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	}
+	echo mysqli_connect_error();
 
 ?>
