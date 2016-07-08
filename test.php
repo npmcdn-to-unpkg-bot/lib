@@ -22,7 +22,7 @@
 	//}
 	$EMAIL = $_GET['EMAIL']; $PASSWORD = $_GET['PASSWORD'];
 	$sql = "INSERT INTO USERS (EMAIL, PASSWORD)
-	VALUES ($EMAIL, $PASSWORD)";
+	VALUES ('".$EMAIL."','".$PASSWORD."')";
 	
 	if (mysqli_query($link, $sql)) {
 	    echo "New record created successfully";
