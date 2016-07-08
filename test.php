@@ -15,17 +15,22 @@
 	PASSWORD varchar(255) NOT NULL,
 	PRIMARY KEY  (ID)
 	)";
+	if (mysqli_query($link, $query)) {
+	    echo "Table MyGuests created successfully";
+	} else {
+	    echo "Error creating table: " . mysqli_error($link);
+	}
 	$sql = "INSERT INTO USERS (EMAIL, PASSWORD)
 	VALUES ('Doe', 'john@example.com')";
 	
-	if (mysqli_query($conn, $sql)) {
+	if (mysqli_query($link, $sql)) {
 	    echo "New record created successfully";
 	} else {
-	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	    echo "Error: " . $sql . "<br>" . mysqli_error($link);
 	}
-        $result = mysqli_query($dbConnection, $query);
+        //$result = mysqli_query($link, $query);
         $sql = "SELECT ID, EMAIL, PASSWORD FROM USERS";
-	$result = mysqli_query($conn, $sql);
+	$result = mysqli_query($link, $sql);
 	
 	if (mysqli_num_rows($result) > 0) {
 	    // output data of each row
