@@ -2,11 +2,14 @@
  
     if ( 0 < $_FILES['file']['error'] ) {
         echo 'Error: ' . $_FILES['file']['error'] . '<br>';
+         echo 'http://smaatapps.com/nector/nectorimg/kumar12.png';
+
     }
     else {
   move_uploaded_file($_FILES['file']['tmp_name'], "./nectorimg/kumar1.png");
+   echo 'http://smaatapps.com/nector/nectorimg/kumar1.png';
+
     }
- echo 'http://smaatapps.com/nector/nectorimg/kumar1.png';
 
 /*set_time_limit(0);
 if (!class_exists('S3'))require_once('S3.php');
