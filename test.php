@@ -8,6 +8,7 @@
 	  	echo "success";
 	  }
 	  $res = mysqli_query($link,"SHOW TABLES");
+	  print_r($res);
 	  $tableList = array();
 	  
 	  while($cRow = mysqli_fetch_array($res))
