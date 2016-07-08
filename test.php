@@ -7,13 +7,30 @@
 	  }else{
 	  	echo "success";
 	  }
-	  $res = mysqli_query($link,"SHOW TABLES");
-	  print_r($res);
-	  $tableList = array();
-	  
-	  while($cRow = mysqli_fetch_array($res))
-	  {
-	    $tableList[] = $cRow[0];
-	  }
-	  return $tableList;
+	$servername = "soiree-smaatapp.cvjwbf8cmrzh.us-west-2.rds.amazonaws.com";
+	$username = "soiree";
+	$password = "kQ#$U3GYUhmw=J&o6Rzv3uh4puWkZi[Nca3rPqBg9";
+	$dbname = "soiree_smaatapp";
+	
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	} 
+	 $sql = "CREATE TABLE MyGuests (
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+		firstname VARCHAR(30) NOT NULL,
+		lastname VARCHAR(30) NOT NULL,
+		email VARCHAR(50),
+		reg_date TIMESTAMP
+		)";
+		
+		if ($conn->query($sql) === TRUE) {
+		    echo "Table MyGuests created successfully";
+		} else {
+		    echo "Error creating table: " . $conn->error;
+		}
+		
+		$conn->close();
 ?>
