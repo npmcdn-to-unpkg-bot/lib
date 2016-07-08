@@ -1,6 +1,6 @@
 <?php
  
-    /*if ( 0 < $_FILES['file']['error'] ) {
+    if ( 0 < $_FILES['file']['error'] ) {
         echo 'Error: ' . $_FILES['file']['error'] . '<br>';
     }
     else {
@@ -8,7 +8,7 @@
     }
  echo 'http://smaatapps.com/nector/nectorimg/kumar1.png';
 
-set_time_limit(0);
+/*set_time_limit(0);
 if (!class_exists('S3'))require_once('S3.php');
 if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAIX4OUYLZ7HUG43VA');
 if (!defined('awsSecretKey')) define('awsSecretKey', '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');
@@ -32,7 +32,7 @@ if (!defined('awsSecretKey')) define('awsSecretKey', 'sY1vAhFVJz7s+joeCCJ8jo0X8f
 						echo "failed";	
 					}
 		
-		}*/
-		echo "sa";
+		}
+		echo "sa";*/
 		
 ?>
