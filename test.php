@@ -16,4 +16,15 @@
                           PRIMARY KEY  (ID)
                           )";
         $result = mysqli_query($dbConnection, $query);
+        $sql = "SELECT ID, EMAIL, PASSWORD FROM USERS";
+	$result = mysqli_query($conn, $sql);
+	
+	if (mysqli_num_rows($result) > 0) {
+	    // output data of each row
+	    while($row = mysqli_fetch_assoc($result)) {
+	        echo "ID: " . $row["ID"]. " - EMAIL: " . $row["EMAIL"]. " " . $row["PASSWORD"]. "<br>";
+	    }
+	} else {
+	    echo "0 results";
+	}
 ?>
