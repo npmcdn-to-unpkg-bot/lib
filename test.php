@@ -7,4 +7,12 @@
 	  }else{
 	  	echo "success";
 	  }
+	  $res = mysqli_query($link,"SHOW TABLES");
+	  $tableList = array();
+	  
+	  while($cRow = mysqli_fetch_array($res))
+	  {
+	    $tableList[] = $cRow[0];
+	  }
+	  return $tableList;
 ?>
