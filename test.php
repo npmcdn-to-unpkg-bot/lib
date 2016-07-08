@@ -10,11 +10,19 @@
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
 	$query = "CREATE TABLE USERS (
-                          ID int(11) AUTO_INCREMENT,
-                          EMAIL varchar(255) NOT NULL,
-                          PASSWORD varchar(255) NOT NULL,
-                          PRIMARY KEY  (ID)
-                          )";
+	ID int(11) AUTO_INCREMENT,
+	EMAIL varchar(255) NOT NULL,
+	PASSWORD varchar(255) NOT NULL,
+	PRIMARY KEY  (ID)
+	)";
+	$sql = "INSERT INTO USERS (EMAIL, PASSWORD)
+	VALUES ('Doe', 'john@example.com')";
+	
+	if (mysqli_query($conn, $sql)) {
+	    echo "New record created successfully";
+	} else {
+	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
         $result = mysqli_query($dbConnection, $query);
         $sql = "SELECT ID, EMAIL, PASSWORD FROM USERS";
 	$result = mysqli_query($conn, $sql);
