@@ -9,8 +9,7 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	$query = "DROP TABLE IF EXISTS `client_registration`;
-		CREATE TABLE IF NOT EXISTS `client_registration` (
+	$query = "CREATE TABLE IF NOT EXISTS `client_registration` (
 		  `client_id` int(100) NOT NULL AUTO_INCREMENT,
 		  `email` varchar(255) NOT NULL,
 		  `password` varchar(255) NOT NULL,
