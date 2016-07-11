@@ -9,18 +9,31 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	//$query = "CREATE TABLE USERS (
-	//ID int(11) AUTO_INCREMENT,
-	//EMAIL varchar(255) NOT NULL,
-	//PASSWORD varchar(255) NOT NULL,
-	//PRIMARY KEY  (ID)
-	//)";
-	//if (mysqli_query($link, $query)) {
-	    //echo "Table MyGuests created successfully";
-	//} else {
-	    //echo "Error creating table: " . mysqli_error($link);
-	//}
-	$EMAIL = $_GET['EMAIL']; $PASSWORD = $_GET['PASSWORD'];
+	$query = "DROP TABLE IF EXISTS `client_registration`;
+		CREATE TABLE IF NOT EXISTS `client_registration` (
+		  `client_id` int(100) NOT NULL AUTO_INCREMENT,
+		  `email` varchar(255) NOT NULL,
+		  `password` varchar(255) NOT NULL,
+		  `first_name` varchar(255) NOT NULL,
+		  `last_name` varchar(255) NOT NULL,
+		  `profile_url` varchar(255) NOT NULL,
+		  `phone_number` varchar(255) NOT NULL,
+		  `gender` int(100) NOT NULL COMMENT '0 - female, 1 - male',
+		  `latitude` varchar(255) NOT NULL,
+		  `longitude` varchar(255) NOT NULL,
+		  `email_verification` int(10) NOT NULL COMMENT '0 - Not verified, 1 - Verified',
+		  `phone_verification` int(10) NOT NULL COMMENT '0 - Not verified, 1 - Verified',
+		  `status` int(10) NOT NULL COMMENT ' 0 - Inactive, 1 - Active',
+		  `deviceid` varchar(255) NOT NULL,
+		  `devicetype` varchar(255) NOT NULL,
+		  PRIMARY KEY (`client_id`)
+		) ENGINE=MyISAM  DEFAULT CHARSET=latin1";
+	if (mysqli_query($link, $query)) {
+	    echo "Table MyGuests created successfully";
+	} else {
+	    echo "Error creating table: " . mysqli_error($link);
+	}
+	/*$EMAIL = $_GET['EMAIL']; $PASSWORD = $_GET['PASSWORD'];
 	$sql = "INSERT INTO USERS (EMAIL, PASSWORD)
 	VALUES ('".$EMAIL."','".$PASSWORD."')";
 	
@@ -40,5 +53,5 @@
 	    }
 	} else {
 	    echo "0 results";
-	}
+	}*/
 ?>
