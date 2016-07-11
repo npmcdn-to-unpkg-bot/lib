@@ -9,7 +9,7 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	$query = "CREATE TABLE IF NOT EXISTS `client_registration` (
+	/*$query = "CREATE TABLE IF NOT EXISTS `client_registration` (
 		  `client_id` int(100) NOT NULL AUTO_INCREMENT,
 		  `email` varchar(255) NOT NULL,
 		  `password` varchar(255) NOT NULL,
@@ -32,15 +32,8 @@
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
 	}
-	/*$EMAIL = $_GET['EMAIL']; $PASSWORD = $_GET['PASSWORD'];
-	$sql = "INSERT INTO USERS (EMAIL, PASSWORD)
-	VALUES ('".$EMAIL."','".$PASSWORD."')";
+	$EMAIL = $_GET['EMAIL']; $PASSWORD = $_GET['PASSWORD'];
 	
-	if (mysqli_query($link, $sql)) {
-	    echo "New record created successfully";
-	} else {
-	    echo "Error: " . $sql . "<br>" . mysqli_error($link);
-	}
         //$result = mysqli_query($link, $query);
         $sql = "SELECT ID, EMAIL, PASSWORD FROM USERS";
 	$result = mysqli_query($link, $sql);
@@ -53,4 +46,12 @@
 	} else {
 	    echo "0 results";
 	}*/
+	$sql = "INSERT INTO `client_registration` (`client_id`, `email`, `password`, `first_name`, `last_name`, `profile_url`, `phone_number`, `gender`, `latitude`, `longitude`, `email_verification`, `phone_verification`, `status`, `deviceid`, `devicetype`) VALUES
+(1, 'car3chan@gmail.com', '123', 'kar', 'chan', '', '9840175672', 1, '87.45', '55.54', 1, 0, 0, '', '')";
+	
+	if (mysqli_query($link, $sql)) {
+	    echo "New record created successfully";
+	} else {
+	    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+	}
 ?>
