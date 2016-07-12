@@ -14,7 +14,7 @@
 	    echo "Table MyGuests drop successfully";
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
-	}*/
+	}
 	$query = "CREATE TABLE IF NOT EXISTS `client_details` (
   `client_id` int(100) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
