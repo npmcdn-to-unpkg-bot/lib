@@ -15,18 +15,12 @@
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
 	}*/
-	$query = "CREATE TABLE IF NOT EXISTS `client_payment_details` (
-  `client_payment_details_id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_id` int(100) NOT NULL,
-  `event_id` int(100) NOT NULL,
-  `no_of_talents_requested` varchar(255) NOT NULL,
-  `no_of_talents_hired` int(100) NOT NULL,
-  `transaction_id` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `amount` float NOT NULL,
-  `datetime` datetime NOT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`client_payment_details_id`)
+	$query = "CREATE TABLE IF NOT EXISTS `device` (
+  `deviceautoid` int(100) NOT NULL AUTO_INCREMENT,
+  `client_id` varchar(255) NOT NULL,
+  `deviceid` varchar(255) NOT NULL,
+  `devicetype` varchar(255) NOT NULL,
+  PRIMARY KEY (`deviceautoid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
