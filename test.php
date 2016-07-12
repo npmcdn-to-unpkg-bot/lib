@@ -9,21 +9,33 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	$query = "CREATE TABLE IF NOT EXISTS `checkin` (
-  `checkinid` int(100) NOT NULL,
-  `event_id` int(100) NOT NULL,
+	$query = "CREATE TABLE IF NOT EXISTS `client_details` (
   `client_id` int(100) NOT NULL,
-  `talent_id` int(100) NOT NULL,
-  `checkin_datetime` datetime NOT NULL,
-  `checkout_datetime` datetime NOT NULL,
-  `number_of_days` int(100) NOT NULL,
-  `number_of_hours` int(100) NOT NULL,
-  `number_of_minutes` int(100) NOT NULL,
-  `comments` text NOT NULL,
-  `checkin_status` int(10) NOT NULL COMMENT '0 - checkdin, 1 - checkedout , 2 - talent agreed, 3 - talent requested recheck',
-  `talent_rating` int(100) NOT NULL,
-  `payment_status` int(255) NOT NULL COMMENT '0 - not paid, 1 - paid'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1";
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `profile_url` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `gender` int(100) NOT NULL COMMENT '0 - female, 1 - male',
+  `company` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `postal_code` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  `email_verification` int(10) NOT NULL COMMENT '0 - Not verified, 1 - Verified',
+  `phone_verification` int(10) NOT NULL COMMENT '0 - Not verified, 1 - Verified',
+  `phone_verification_code` int(255) NOT NULL,
+  `login_type` varchar(255) NOT NULL,
+  `facebook_id` varchar(255) NOT NULL,
+  `stripe_id` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `email_notification` int(10) NOT NULL COMMENT '0 - No, 1 - Yes',
+  `email_frequency` varchar(255) NOT NULL COMMENT 'No.of emails',
+  `status` int(10) NOT NULL COMMENT ' 0 - Inactive, 1 - Active, 2 - Closed',
+  `deviceid` varchar(255) NOT NULL,
+  `devicetype` varchar(255) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
 	} else {
