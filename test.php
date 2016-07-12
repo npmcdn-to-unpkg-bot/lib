@@ -15,15 +15,18 @@
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
 	}*/
-	$query = "CREATE TABLE IF NOT EXISTS `talent_review` (
-  `talent_review_id` int(100) NOT NULL AUTO_INCREMENT,
+	$query = "CREATE TABLE IF NOT EXISTS `timeline` (
+  `timeline_id` int(100) NOT NULL AUTO_INCREMENT,
   `event_id` int(100) NOT NULL,
-  `client_id` int(100) NOT NULL,
   `talent_id` int(100) NOT NULL,
-  `review_star` int(100) NOT NULL,
-  `review_comments` text NOT NULL,
+  `client_id` int(100) NOT NULL,
+  `number_of_days` int(100) NOT NULL,
+  `number_of_hours` int(100) NOT NULL,
+  `number_of_minutes` int(100) NOT NULL,
+  `comments` text NOT NULL,
   `datetime` datetime NOT NULL,
-  PRIMARY KEY (`talent_review_id`)
+  `status` int(11) NOT NULL COMMENT ' 0 - New, 1 - Approved, 2 - Rejected',
+  PRIMARY KEY (`timeline_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
