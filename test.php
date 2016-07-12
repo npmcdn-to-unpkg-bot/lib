@@ -9,7 +9,7 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	$query ="DROP TABLE table_name";
+	$query ="DROP TABLE client_details";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests drop successfully";
 	} else {
