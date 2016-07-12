@@ -9,27 +9,21 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	$query ="DROP TABLE checkin";
+	/*$query ="DROP TABLE checkin";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests drop successfully";
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
-	}
-	$query = "CREATE TABLE IF NOT EXISTS `checkin` (
-  `checkinid` int(11) NOT NULL AUTO_INCREMENT,
-  `event_id` int(100) NOT NULL,
+	}*/
+	$query = "CREATE TABLE IF NOT EXISTS `client_card_details` (
+  `card_id` int(100) NOT NULL AUTO_INCREMENT,
   `client_id` int(100) NOT NULL,
-  `talent_id` int(100) NOT NULL,
-  `checkin_datetime` datetime NOT NULL,
-  `checkout_datetime` datetime NOT NULL,
-  `number_of_days` int(100) NOT NULL,
-  `number_of_hours` int(100) NOT NULL,
-  `number_of_minutes` int(100) NOT NULL,
-  `comments` text NOT NULL,
-  `checkin_status` int(10) NOT NULL COMMENT '0 - checkdin, 1 - checkedout , 2 - talent agreed, 3 - talent requested recheck',
-  `talent_rating` int(100) NOT NULL,
-  `payment_status` int(255) NOT NULL COMMENT '0 - not paid, 1 - paid',
-   PRIMARY KEY (`checkinid`)
+  `name` varchar(255) NOT NULL,
+  `number` varchar(255) NOT NULL,
+  `cvv` varchar(255) NOT NULL,
+  `expiration_month` int(11) NOT NULL,
+  `expiration_year` int(11) NOT NULL,
+  PRIMARY KEY (`checkinid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
