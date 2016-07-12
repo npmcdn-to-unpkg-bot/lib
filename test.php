@@ -26,7 +26,7 @@
   `amount` float NOT NULL,
   `datetime` datetime NOT NULL,
   `date` date NOT NULL,
-  PRIMARY KEY (`checkinid`)
+  PRIMARY KEY (`client_payment_details_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
