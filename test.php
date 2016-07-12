@@ -15,12 +15,43 @@
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
 	}*/
-	$query = "CREATE TABLE IF NOT EXISTS `device` (
-  `deviceautoid` int(100) NOT NULL AUTO_INCREMENT,
-  `client_id` varchar(255) NOT NULL,
-  `deviceid` varchar(255) NOT NULL,
-  `devicetype` varchar(255) NOT NULL,
-  PRIMARY KEY (`deviceautoid`)
+	$query = "CREATE TABLE IF NOT EXISTS `event_detail` (
+  `event_id` int(100) NOT NULL AUTO_INCREMENT,
+  `client_id` int(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `event_name` varchar(255) NOT NULL,
+  `event_pic` varchar(255) NOT NULL,
+  `event_contact` varchar(255) NOT NULL,
+  `start_datetime` datetime NOT NULL,
+  `end_datetime` datetime NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `locality` varchar(255) NOT NULL,
+  `sublocality` varchar(255) NOT NULL,
+  `borough` varchar(255) NOT NULL,
+  `district` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `postalcode` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  `number_of_guests` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `starting_instructions` text NOT NULL,
+  `uniform` int(10) NOT NULL COMMENT '1 - black tie, 2 - white shirt black tie, 3 - custom',
+  `uniform_description` text NOT NULL,
+  `uniform_image` varchar(255) NOT NULL,
+  `uniform_provided` int(10) NOT NULL COMMENT '0 - No ,1 - Yes',
+  `number_of_waiters` varchar(255) NOT NULL,
+  `talent_requested_for` varchar(255) NOT NULL,
+  `is_advance_paid` int(100) NOT NULL COMMENT '0 - not paid, 1 - paid',
+  `open_to_all` int(100) NOT NULL COMMENT '0 - yes, 1 - handpicked',
+  `status` int(10) NOT NULL COMMENT '0 - Open, 1 - Close, 2 - Delete',
+  `launch_status` int(10) NOT NULL COMMENT '0 - Not launched, 1 - launched',
+  `refund_status` int(11) NOT NULL COMMENT '0 - not , 1 - refunded',
+  `launch_datetime` datetime NOT NULL,
+  PRIMARY KEY (`event_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
