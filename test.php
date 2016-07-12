@@ -64,7 +64,7 @@
   `status` int(10) NOT NULL COMMENT ' 0 - Active, 1 - InActive, 2 - Closed',
   `deviceid` varchar(255) NOT NULL,
   `devicetype` varchar(255) NOT NULL,
-  PRIMARY KEY (`card_id`)
+  PRIMARY KEY (`talent_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
