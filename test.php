@@ -9,17 +9,40 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
-	/*$query ="DROP TABLE checkin";
+	$query ="DROP TABLE client_details";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests drop successfully";
 	} else {
 	    echo "Error creating table: " . mysqli_error($link);
 	}*/
-	$query = "CREATE TABLE IF NOT EXISTS `type` (
-  `typeid` int(100) NOT NULL AUTO_INCREMENT,
-  `type` int(100) NOT NULL COMMENT '1 - Client, 2 - Talent'
-   PRIMARY KEY (`typeid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1";
+	$query = "CREATE TABLE IF NOT EXISTS `client_details` (
+  `client_id` int(100) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `profile_url` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `gender` int(100) NOT NULL COMMENT '0 - female, 1 - male',
+  `company` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `postal_code` varchar(255) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  `email_verification` int(10) NOT NULL COMMENT '0 - Not verified, 1 - Verified',
+  `phone_verification` int(10) NOT NULL COMMENT '0 - Not verified, 1 - Verified',
+  `phone_verification_code` int(255) NOT NULL,
+  `login_type` varchar(255) NOT NULL,
+  `facebook_id` varchar(255) NOT NULL,
+  `stripe_id` varchar(255) NOT NULL,
+  `date` datetime NOT NULL,
+  `email_notification` int(10) NOT NULL COMMENT '0 - No, 1 - Yes',
+  `email_frequency` varchar(255) NOT NULL COMMENT 'No.of emails',
+  `status` int(10) NOT NULL COMMENT ' 0 - Inactive, 1 - Active, 2 - Closed',
+  `deviceid` varchar(255) NOT NULL,
+  `devicetype` varchar(255) NOT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
 	} else {
