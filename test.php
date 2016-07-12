@@ -23,7 +23,7 @@
   `cvv` varchar(255) NOT NULL,
   `expiration_month` int(11) NOT NULL,
   `expiration_year` int(11) NOT NULL,
-  PRIMARY KEY (`supportid`)
+  PRIMARY KEY (`card_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
