@@ -41,7 +41,7 @@
   `status` int(10) NOT NULL COMMENT ' 0 - Inactive, 1 - Active, 2 - Closed',
   `deviceid` varchar(255) NOT NULL,
   `devicetype` varchar(255) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=latin1";
+) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
 	} else {
