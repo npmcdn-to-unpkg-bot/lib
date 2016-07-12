@@ -40,7 +40,8 @@
   `email_frequency` varchar(255) NOT NULL COMMENT 'No.of emails',
   `status` int(10) NOT NULL COMMENT ' 0 - Inactive, 1 - Active, 2 - Closed',
   `deviceid` varchar(255) NOT NULL,
-  `devicetype` varchar(255) NOT NULL
+  `devicetype` varchar(255) NOT NULL,
+   PRIMARY KEY (`client_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
