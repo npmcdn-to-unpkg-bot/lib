@@ -9,8 +9,14 @@
 	  }
 	 // echo mysqli_get_client_info(); echo mysqli_get_client_version(); echo mysqli_get_host_info($link);
 	//echo mysqli_connect_error();
+	$query ="DROP TABLE table_name";
+	if (mysqli_query($link, $query)) {
+	    echo "Table MyGuests drop successfully";
+	} else {
+	    echo "Error creating table: " . mysqli_error($link);
+	}
 	$query = "CREATE TABLE IF NOT EXISTS `client_details` (
-  `client_id` int(100) NOT NULL,
+  `client_id` int(100) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
@@ -35,7 +41,7 @@
   `status` int(10) NOT NULL COMMENT ' 0 - Inactive, 1 - Active, 2 - Closed',
   `deviceid` varchar(255) NOT NULL,
   `devicetype` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1";
+) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=latin1";
 	if (mysqli_query($link, $query)) {
 	    echo "Table MyGuests created successfully";
 	} else {
